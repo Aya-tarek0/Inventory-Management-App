@@ -1,22 +1,28 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
+﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+using InventorySystem.DTO;
 using InventorySystem.Enum;
 
 namespace InventorySystem.Models
 {
-    public class InventoryTransaction
+    public class InventoryTransaction : BaseModel
     {
-        public int Id { get; set; }
         public TransactionType TransactionType { get; set; } 
         public int Quantity { get; set; }
         public DateTime Date { get; set; }
 
-  
-        public int ProductId { get; set; }
-        public Product Product { get; set; }
 
+        [ForeignKey("Inventory")]
+        public int InventoryId { get; set; }
+        public Inventory Inventory { get; set; }
+
+
+        [ForeignKey("FromWarehouse")]
         public int? FromWarehouseId { get; set; } 
         public Warehouse FromWarehouse { get; set; }
 
+
+        [ForeignKey("ToWarehouse")]
         public int? ToWarehouseId { get; set; } 
         public Warehouse ToWarehouse { get; set; }
 

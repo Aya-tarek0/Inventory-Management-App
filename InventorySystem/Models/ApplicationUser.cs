@@ -1,6 +1,10 @@
-﻿namespace InventorySystem.Models
+﻿using Microsoft.AspNetCore.Identity;
+
+namespace InventorySystem.Models
 {
-    public class ApplicationUser
+    public class ApplicationUser:IdentityUser
     {
+        public ICollection<InventoryTransaction> Transactions { get; set; }
+
     }
 }

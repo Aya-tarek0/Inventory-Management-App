@@ -1,6 +1,9 @@
 ﻿namespace InventorySystem.Enum
 {
-    public class TransactionType
+    public enum TransactionType
     {
+        Add,
+        Remove,
+        Transfer
     }
 }
