@@ -20,6 +20,7 @@ namespace InventorySystem.CQRS.Handler.Reports
         .Where(e => e.Quantity < e.LowStockThreshold)
         .Select(e => new ProductsUnderLow
         {
+            InventoryId = e.Id,
             ProductName = e.Product.Name,
            WareHouseName = e.Warehouse.Name,
           Category = e.Product.Category

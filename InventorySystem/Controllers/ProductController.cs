@@ -60,7 +60,7 @@ namespace InventorySystem.Controllers
             }
             catch (Exception ex)
             {
-                return ResponseDto<IEnumerable<ProductDto>>.Error(Enum.ErrorCode.UnExcepectedError, "unexpected error occurred");
+                return ResponseDto<IEnumerable<ProductDto>>.Error(Enum.ErrorCode.UnExcepectedError, ex.Message);
             }
         }
 
@@ -119,7 +119,7 @@ namespace InventorySystem.Controllers
             }
             catch (Exception ex)
             {
-                return ResponseDto<string>.Error(Enum.ErrorCode.UnExcepectedError, "An unexpected error occurred while deleting the product.");
+                return ResponseDto<string>.Error(Enum.ErrorCode.UnExcepectedError, ex.Message);
             }
         }
         #endregion

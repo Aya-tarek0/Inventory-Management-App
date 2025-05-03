@@ -12,6 +12,10 @@ using InventorySystem.Repository;
 using InventorySystem.CQRS.Handler.Product;
 using AutoMapper;
 using Microsoft.OpenApi.Models;
+using Hangfire;
+using InventorySystem.CQRS.Commands.Notifications;
+using InventorySystem.DTO.Notifications;
+using InventorySystem.Service;
 namespace InventorySystem
 {
     public class Program
@@ -28,9 +32,17 @@ namespace InventorySystem
             });
             builder.Services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
             builder.Services.AddAutoMapper(typeof(Program).Assembly);
+            builder.Services.AddScoped<LowStockNotificationService>();
+            builder.Services.AddScoped<ArchiveOldTransactionsService>();
 
 
 
+            builder.Services.AddHangfire(config =>
+            {
+                config.UseSqlServerStorage(builder.Configuration.GetConnectionString("db")); 
+            });
+
+            builder.Services.AddHangfireServer();
             builder.Services.AddAuthentication(options =>
             {
                 options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
@@ -107,10 +119,27 @@ namespace InventorySystem
 
             app.UseAuthorization();
 
+            app.UseHangfireDashboard("/hangfire");
 
             app.MapControllers();
 
+            //BackGround Job Log Daily Notification Fory Products In Inventory Under Low Stock
+            RecurringJob.AddOrUpdate<LowStockNotificationService>(
+          "DailyCheckToLowStock",
+          e => e.ExecuteFunction(),
+          Cron.Daily
+      );
+
+            //BackGround Job To Archive Transaction Older Than one Year
+
+            RecurringJob.AddOrUpdate<ArchiveOldTransactionsService>(
+                     "archiveOldTransactions",
+                      e=> e.ExecuteFun(),
+                      Cron.Daily
+                             );
+
             app.Run();
+
         }
     }
 }

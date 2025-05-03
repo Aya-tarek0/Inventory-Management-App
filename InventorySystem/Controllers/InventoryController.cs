@@ -123,7 +123,7 @@ namespace InventorySystem.Controllers
                 }
                 catch (Exception ex)
                 {
-                    return ResponseDto<string>.Error(Enum.ErrorCode.UnExcepectedError, "An unexpected error occurred while deleting the Inventory.");
+                    return ResponseDto<string>.Error(Enum.ErrorCode.UnExcepectedError, ex.Message);
                 }
             }
         #endregion

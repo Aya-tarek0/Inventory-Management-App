@@ -7,6 +7,7 @@
 
         public string Category { set; get; }
 
+        public int InventoryId { get; set; }
 
     }
 }

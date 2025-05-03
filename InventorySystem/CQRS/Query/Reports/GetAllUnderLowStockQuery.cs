@@ -6,8 +6,8 @@ namespace InventorySystem.CQRS.Query.Reports
 {
     public class GetAllUnderLowStockQuery : IRequest<IEnumerable<ProductsUnderLow>>
     {
-        public Filter filter { set; get; }
+        public Filter? filter { set; get; }
 
-        public string Category { set; get; }
+        public string? Category { set; get; }
     }
 }
