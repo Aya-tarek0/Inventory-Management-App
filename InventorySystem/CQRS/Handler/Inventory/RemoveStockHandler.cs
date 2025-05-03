@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Hangfire;
 using InventorySystem.CQRS.Commands.Inventory;
 using InventorySystem.DTO.Inventories;
 using InventorySystem.Interfaces;
@@ -31,6 +32,14 @@ namespace InventorySystem.CQRS.Handler.Inventory
             await genericRepository.SaveChangesAsync();
 
             var inventoryDto = mapper.Map<UpdateInventoryDto>(inventory);
+
+
+            if (inventoryDto.Quantity < inventory.LowStockThreshold)
+            {
+                BackgroundJob.Enqueue(() =>
+                    Console.WriteLine($"Product Quantity Is Under {inventory.LowStockThreshold}")
+           );
+            }
             return inventoryDto;
 
         }

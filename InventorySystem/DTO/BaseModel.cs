@@ -6,7 +6,6 @@ namespace InventorySystem.DTO
     public class BaseModel
     {
         [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
 
         public int Id { set; get; }
     }
