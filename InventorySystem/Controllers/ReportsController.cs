@@ -16,7 +16,9 @@ namespace InventorySystem.Controllers
         {
             Mediator = mediator;
         }
-        [HttpGet("under-low-stock")]
+
+     
+        [HttpGet("underLowStock")]
         public async Task<IActionResult> GetProductsUnderLowStock([FromQuery] Filter filter, [FromQuery] string? category)
         {
             var query = new GetAllUnderLowStockQuery
@@ -30,7 +32,7 @@ namespace InventorySystem.Controllers
         }
 
 
-        [HttpGet("Transaction-History/{ProductId}")]
+        [HttpGet("TransactionHistory/{ProductId}")]
         public async Task<IActionResult> GetTransactionsForProduct([FromQuery] Filter filter, [FromQuery] string? category , DateTime? date , TransactionType? transactionType, int ProductId)
         {
             var query = new GetTransactionsForProductQuery

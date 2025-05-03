@@ -6,7 +6,7 @@ using MediatR;
 
 namespace InventorySystem.CQRS.Handler.Product
 {
-    public class GetAllProductsHandler : IRequestHandler<GetAllProductsQuery, IEnumerable<ProductDto>>
+    public class GetAllProductsHandler : IRequestHandler<GetAllProductsQuery, IEnumerable<ProductInventoriesDTO>>
     {
         public IGenericRepository<Models.Product> _genericRepository;
         public IMapper Mapper { get; }
@@ -18,12 +18,13 @@ namespace InventorySystem.CQRS.Handler.Product
 
        
 
-        public Task<IEnumerable<ProductDto>> Handle(GetAllProductsQuery request, CancellationToken cancellationToken)
+        public Task<IEnumerable<ProductInventoriesDTO>> Handle(GetAllProductsQuery request, CancellationToken cancellationToken)
         {
 
-            IEnumerable<Models.Product> products = _genericRepository.GetAll();
+            IEnumerable<Models.Product> products = _genericRepository.GetAll().Where(e => e.inventories != null && e.inventories.Any())
+;
 
-            IEnumerable<ProductDto> productDto = Mapper.Map<IEnumerable<ProductDto>>(products);
+            IEnumerable<ProductInventoriesDTO> productDto = Mapper.Map<IEnumerable<ProductInventoriesDTO>>(products);
 
             return Task.FromResult(productDto);
 

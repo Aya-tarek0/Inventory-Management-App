@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
 using InventorySystem.Models;
 
-namespace InventorySystem.DTO;
+namespace InventorySystem.DTO.Inventories;
 
 public class InventoryProfile : Profile
 {

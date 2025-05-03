@@ -12,7 +12,7 @@ namespace InventorySystem.Models
 
            public string Category { set; get; }
 
-      
+          public ICollection<Inventory> inventories { set; get; }
 
 
     }

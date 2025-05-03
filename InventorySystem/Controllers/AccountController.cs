@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
-using InventorySystem.DTO;
+using InventorySystem.DTO.Account;
 
 namespace InventorySystem.Controllers
 {

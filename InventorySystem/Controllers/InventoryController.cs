@@ -4,6 +4,7 @@ using InventorySystem.CQRS.Orchestrators;
 using InventorySystem.CQRS.Query.Inventory;
 using InventorySystem.CQRS.Query.Prouct;
 using InventorySystem.DTO;
+using InventorySystem.DTO.Inventories;
 using InventorySystem.DTO.Transactions;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;

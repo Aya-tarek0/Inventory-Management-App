@@ -47,20 +47,20 @@ namespace InventorySystem.Controllers
 
         #region Get All
         [HttpGet]
-        public async Task<ResponseDto<IEnumerable<ProductDto>>> GetAllProducts()
+        public async Task<ResponseDto<IEnumerable<ProductInventoriesDTO>>> GetAllProducts()
         {
             try
             {
                 var products = await Mediator.Send(new GetAllProductsQuery());
 
                 if (products == null)
-                    return ResponseDto<IEnumerable<ProductDto>>.Error(Enum.ErrorCode.NotFound, "The List Is Empty");
+                    return ResponseDto<IEnumerable<ProductInventoriesDTO>>.Error(Enum.ErrorCode.NotFound, "The List Is Empty");
 
-                return ResponseDto<IEnumerable<ProductDto>>.Succeded(products,"Get All Successfully");
+                return ResponseDto<IEnumerable<ProductInventoriesDTO>>.Succeded(products,"Get All Successfully");
             }
             catch (Exception ex)
             {
-                return ResponseDto<IEnumerable<ProductDto>>.Error(Enum.ErrorCode.UnExcepectedError, ex.Message);
+                return ResponseDto<IEnumerable<ProductInventoriesDTO>>.Error(Enum.ErrorCode.UnExcepectedError, ex.Message);
             }
         }
 

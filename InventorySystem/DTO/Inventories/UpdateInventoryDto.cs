@@ -1,4 +1,4 @@
-﻿namespace InventorySystem.DTO
+﻿namespace InventorySystem.DTO.Inventories
 {
     public class UpdateInventoryDto
     {

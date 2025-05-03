@@ -1,6 +1,6 @@
 ﻿using InventorySystem.Models;
 
-namespace InventorySystem.DTO
+namespace InventorySystem.DTO.Inventories
 {
     public class InventoryDto
     {

@@ -10,7 +10,7 @@ namespace InventorySystem.Models
             public DateTime CreatedAt { get; set; }
 
 
-        [ForeignKey("Inventory")]
+           [ForeignKey("Inventory")]
             public int InventoryId { get; set; }
             public Inventory Inventory { get; set; }
     }

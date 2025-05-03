@@ -2,7 +2,7 @@
 
 namespace InventorySystem.DTO.Products
 {
-    public class ProductDto
+    public class ProductInventoriesDTO
     {
         public string Name { get; set; }
         public string Description { get; set; }

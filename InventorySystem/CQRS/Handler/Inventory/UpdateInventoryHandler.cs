@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
 using InventorySystem.CQRS.Commands.Inventory;
 using InventorySystem.CQRS.Query.Prouct;
-using InventorySystem.DTO;
+using InventorySystem.DTO.Inventories;
 using InventorySystem.Interfaces;
 using InventorySystem.Models;
 using MediatR;

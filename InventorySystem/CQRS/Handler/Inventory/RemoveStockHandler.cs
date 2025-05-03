@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 using InventorySystem.CQRS.Commands.Inventory;
-using InventorySystem.DTO;
+using InventorySystem.DTO.Inventories;
 using InventorySystem.Interfaces;
 using MediatR;
 

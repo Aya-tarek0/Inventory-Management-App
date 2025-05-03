@@ -4,7 +4,7 @@ using MediatR;
 namespace InventorySystem.CQRS.Query.Prouct
 {
 
-    public class GetAllProductsQuery : IRequest<IEnumerable<ProductDto>>
+    public class GetAllProductsQuery : IRequest<IEnumerable<ProductInventoriesDTO>>
     {
     }
 

@@ -1,4 +1,4 @@
-﻿namespace InventorySystem.DTO
+﻿namespace InventorySystem.DTO.Account
 {
     public class LoginDto
     {

@@ -1,4 +1,4 @@
-﻿using InventorySystem.DTO;
+﻿using InventorySystem.DTO.Inventories;
 using MediatR;
 
 namespace InventorySystem.CQRS.Query.Inventory
