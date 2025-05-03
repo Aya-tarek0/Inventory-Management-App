@@ -11,7 +11,9 @@ namespace InventorySystem.DTO.Products
             CreateMap<Product, ProductDto>()
                 .ForMember(dest => dest.Name, opt => opt.MapFrom(src => src.Name))
                 .ForMember(dest => dest.Price, opt => opt.MapFrom(src => src.Price))
-                .ForMember(dest => dest.Description, opt => opt.MapFrom(src => src.Description));
+                .ForMember(dest => dest.Description, opt => opt.MapFrom(src => src.Description))
+                 .ForMember(dest => dest.Category, opt => opt.MapFrom(src => src.Category));
+
 
 
             CreateMap<ProductDto, Product>();

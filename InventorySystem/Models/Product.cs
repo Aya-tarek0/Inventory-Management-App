@@ -10,6 +10,8 @@ namespace InventorySystem.Models
 
             public double Price { set; get; }
 
+           public string Category { set; get; }
+
       
 
 
